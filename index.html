@@ -147,6 +147,26 @@
         flex-direction: column;
       }
 
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .wrapper {
+        flex: 1 0 auto;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .wrapper {
+        flex: 1 0 auto;
+      }
+
       .wrapper {
         position: relative;
         min-height: 100vh;
@@ -359,8 +379,15 @@
         background-color: #312450;
         color: rgba(255, 255, 255, 0.15);
         font-size: 0.8em;
-        padding: 2em 0;
+        padding: 45px 60px 40px;
         text-align: center;
+        box-sizing: border-box;
+      }
+
+      #footer ul.menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
 
       #footer a {
@@ -467,7 +494,7 @@
         <div class="inner">
           <p class="eyebrow">个人主页 · Vibe Coding</p>
           <h1 id="welcome-message">EEELab</h1>
-          <p class="description">个人信息</p>
+          <p class="description">多模态模型、计算机视觉检测</p>
           <a href="#work-experience" class="btn primary">查看经历</a>
         </div>
       </section>
@@ -477,19 +504,22 @@
         <div class="inner">
           <h2 style="color: #fff;">教育背景</h2>
           <div class="experience-item">
-            <h3>本科</h3>
-            <p>深圳大学</p>
-            <p>专业：计算机科学</p>
+            <h3>深圳大学 | 计算机科学</h3>
+            <p>主修课程：数据结构与算法、操作系统、计算机网络、数据库、C++/Python程序设计</p>
+            <p>能力基础：夯实计算机底层基础，参与校内软件开发竞赛，熟悉常用算法与软件开发流程。</p>
           </div>
+          <hr style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.15); border: none; margin: 24px 0;">
           <div class="experience-item">
-            <h3>硕士</h3>
-            <p>哈工大</p>
-            <p>专业：软件工程</p>
+            <h3>哈尔滨工业大学 | 软件工程</h3>
+            <p>研究方向：计算机视觉、深度学习工程化落地</p>
+            <p>主修课程：高级人工智能、计算机视觉、大规模软件工程、分布式系统</p>
+            <p>实践：完成图像目标检测系统毕业设计，参与校内AI算法平台开发；掌握模型训练调优、工程部署全流程。</p>
           </div>
+          <hr style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.15); border: none; margin: 24px 0;">
           <div class="experience-item">
-            <h3>博士</h3>
-            <p>亚利桑那州立大学</p>
-            <p>专业：数学科学</p>
+            <h3>亚利桑那州立大学 | 数学科学</h3>
+            <p>研究方向：机器学习理论、大模型数学基础、计算机视觉几何建模</p>
+            <p>主要工作：围绕高维数据表征、深度学习收敛性开展理论研究，发表多篇学术会议论文；参与实验室视觉‑语言多模态模型预研工作。</p>
           </div>
         </div>
       </section>
@@ -499,19 +529,27 @@
         <div class="inner">
           <h2 style="color: #fff;">工作经历</h2>
           <div class="experience-item">
-            <h3>2011~2018</h3>
-            <p>腾讯公司</p>
-            <p>职位：计算机视觉</p>
+            <h3>大疆 | 大语言模型开发工程师 | 2023‑03 ~ 2026‑10</h3>
+            <p>负责大语言模型预训练、微调、推理优化相关研发工作，参与基座模型迭代与领域适配微调。</p>
+            <p>完成模型推理链路性能优化，针对端侧资源约束做算子裁剪、量化压缩，提升模型吞吐量、降低显存占用。</p>
+            <p>搭建模型评测自动化流水线，覆盖能力、安全、幻觉多维度指标，保障版本迭代质量。</p>
+            <p>协同产品、算法团队完成垂直场景Prompt工程、Agent能力原型开发与验证。</p>
           </div>
+          <hr style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.15); border: none; margin: 24px 0;">
           <div class="experience-item">
-            <h3>2018~2023</h3>
-            <p>字节跳动</p>
-            <p>职位：人工智能</p>
+            <h3>字节跳动 | 人工智能算法工程师 | 2018‑04 ~ 2023‑02</h3>
+            <p>从事多模态AI算法研发，兼顾计算机视觉与NLP方向，参与业务AI能力落地。</p>
+            <p>负责图像理解、图文匹配算法模块开发，完成数据集构建、模型训练、迭代调优与线上A/B测试。</p>
+            <p>参与算法工程化，把训练模型封装为线上服务，处理高并发推理请求，优化服务延迟与稳定性。</p>
+            <p>跟进前沿论文，做技术预研，将新算法改造适配内部业务框架，输出技术方案与内部文档。</p>
           </div>
+          <hr style="width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.15); border: none; margin: 24px 0;">
           <div class="experience-item">
-            <h3>2023~2026</h3>
-            <p>大疆</p>
-            <p>职位：大语言模型开发</p>
+            <h3>腾讯 | 计算机视觉算法工程师 | 2011‑07 ~ 2018‑03</h3>
+            <p>从事计算机视觉方向研发，包含图像检测、特征提取、图像质量处理等算法模块。</p>
+            <p>参与图像业务算法原型设计、数据集标注规范制定，完成传统视觉算法向深度学习方案迁移。</p>
+            <p>配合业务完成算法上线，处理业务场景噪声、光照等现实问题，持续迭代算法精度。</p>
+            <p>参与团队技术沉淀，编写组件工具，提升团队算法实验效率。</p>
           </div>
         </div>
       </section>
@@ -522,30 +560,30 @@
           <h2 id="projects-title" style="color: #fff;">项目与开源</h2>
           <div class="projects-grid">
             <div class="project-card">
-              <h3>xxxx开源项目</h3>
-              <p></p>
+              <h3>LightDetect</h3>
+              <p>轻量目标检测工具库，面向边缘设备，提供模型训练、导出、推理全套接口。</p>
             </div>
             <div class="project-card">
-              <h3>yyyy开源项目</h3>
-              <p></p>
+              <h3>QuantLLM</h3>
+              <p>大模型量化小工具，支持多种量化方式，简化端侧大模型压缩流程。</p>
             </div>
             <div class="project-card">
-              <h3>zzzz开源项目</h3>
-              <p></p>
+              <h3>MultiEval</h3>
+              <p>多模态模型自动化评测框架，支持批量指标计算与结果报表输出。</p>
             </div>
             <div class="project-card">
-              <h3>wwww开源项目</h3>
-              <p></p>
+              <h3>GeoAlign</h3>
+              <p>图像几何对齐开源工具，用于图像配准、特征匹配相关任务。</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Footer -->
-      <footer id="footer" class="wrapper style1-alt">
+      <footer id="footer">
         <div class="inner">
           <ul class="menu">
-            <li>&copy; 个人主页. All rights reserved.</li>
+            <li>&copy; <a href="#">个人主页</a>. All rights reserved.</li>
             <li>风格参考：Hyperspace by HTML5 UP</li>
           </ul>
         </div>
