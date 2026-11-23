@@ -1,0 +1,39 @@
+/*
+ * Hyperspace 风格交叉细条纹背景
+ * 参考来源: https://html5up.net/uploads/demos/hyperspace/
+ * 底色: #5e42a6
+ * 纹理效果: 淡白色正交网格 (1px线条, 24px间距)
+ * 线条透明度: rgba(255,255,255,0.06)
+ */
+
+/* 为intro部分添加Hyperspace风格背景 */
+.wrapper.style1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper.style1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 创建正交横竖细白线网格 */
+  background-image:
+    repeating-linear-gradient(to right,
+      transparent,
+      transparent 24px,
+      rgba(255,255,255,0.06) 24px,
+      rgba(255,255,255,0.06) 25px),
+    repeating-linear-gradient(to bottom,
+      transparent,
+      transparent 24px,
+      rgba(255,255,255,0.06) 24px,
+      rgba(255,255,255,0.06) 25px);
+  background-size: 100% 100%;
+  /* 整体旋转45度，得到Hyperspace同款交叉纹理 */
+  transform: rotate(45deg) scale(1.5);
+  transform-origin: center center;
+  z-index: -1;
+}
