@@ -584,7 +584,7 @@
         <div class="inner">
           <ul class="menu">
             <li>&copy; <a href="#">个人主页</a>. All rights reserved.</li>
-            <li>风格参考：Hyperspace by HTML5 UP</li>
+            <li>风格参考：<a href="https://html5up.net/uploads/demos/hyperspace/">Hyperspace by HTML5 UP</a></li>
           </ul>
         </div>
       </footer>
@@ -596,11 +596,15 @@
       document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('#sidebar nav a');
         const btnLinks = document.querySelectorAll('.btn');
+        const sections = document.querySelectorAll('section[id]');
 
         // Handle sidebar navigation
         navLinks.forEach(link => {
           link.addEventListener('click', function(e) {
             e.preventDefault();
+
+            // Add active-locked class to prevent observer from changing active state during scroll
+            this.classList.add('active-locked');
 
             // Remove active class from all links
             navLinks.forEach(l => l.classList.remove('active'));
@@ -617,6 +621,11 @@
               targetElement.scrollIntoView({
                 behavior: 'smooth'
               });
+
+              // Remove active-locked class after scroll completes
+              setTimeout(() => {
+                this.classList.remove('active-locked');
+              }, 1000);
             }
           });
         });
@@ -625,6 +634,9 @@
         btnLinks.forEach(link => {
           link.addEventListener('click', function(e) {
             e.preventDefault();
+
+            // Add active-locked class to prevent observer from changing active state during scroll
+            this.classList.add('active-locked');
 
             // Remove active class from all links
             navLinks.forEach(l => l.classList.remove('active'));
@@ -641,8 +653,45 @@
               targetElement.scrollIntoView({
                 behavior: 'smooth'
               });
+
+              // Remove active-locked class after scroll completes
+              setTimeout(() => {
+                this.classList.remove('active-locked');
+              }, 1000);
             }
           });
+        });
+
+        // Scrollspy functionality with IntersectionObserver
+        const observerOptions = {
+          root: null,
+          rootMargin: '-45% 0px -45% 0px',
+          threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            const link = document.querySelector(`#sidebar nav a[href="#${id}"]`);
+
+            if (entry.isIntersecting && !link.classList.contains('active-locked')) {
+              // Remove active class from all links
+              navLinks.forEach(l => l.classList.remove('active'));
+
+              // Add active class to current link
+              link.classList.add('active');
+            } else if (!entry.isIntersecting && !link.classList.contains('active-locked')) {
+              // Only remove active class if it's not the currently active one and not locked
+              if (link.classList.contains('active')) {
+                link.classList.remove('active');
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observe all sections
+        sections.forEach(section => {
+          observer.observe(section);
         });
       });
     </script>
