@@ -374,6 +374,266 @@
         line-height: 1.8;
       }
 
+      /* Memory game */
+      #game .inner {
+        width: 46em;
+      }
+
+      #game h2 {
+        margin: 0 0 12px;
+        color: #fff;
+        font-size: 30px;
+      }
+
+      .game-subtitle {
+        margin: 0 0 32px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 18px;
+      }
+
+      .game {
+        color: #fff;
+      }
+
+      .game__bar {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1.25em;
+        margin-bottom: 1.25em;
+      }
+
+      .game__stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25em;
+        margin: 0;
+      }
+
+      .game__stat {
+        min-width: 4.2em;
+      }
+
+      .game__stat dt {
+        margin-bottom: 0.3em;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.72em;
+        letter-spacing: 0.12em;
+      }
+
+      .game__stat dd {
+        margin: 0;
+        color: #fff;
+        font-size: 1.25em;
+        font-weight: 600;
+      }
+
+      .game__stat-total {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.7em;
+      }
+
+      .game__controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.55em;
+      }
+
+      .game__levels {
+        display: flex;
+        gap: 0.35em;
+      }
+
+      .game__level,
+      .game__action,
+      .game__result-action {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 2em;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.72);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.72em;
+        font-weight: 600;
+        line-height: 1;
+        padding: 0.85em 1.05em;
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .game__level:hover,
+      .game__action:hover,
+      .game__result-action:hover,
+      .game__level.is-active {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+
+      .game__action:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+
+      .game__hint,
+      .game__status {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85em;
+        line-height: 1.7;
+      }
+
+      .game__hint {
+        margin: 0 0 1.25em;
+      }
+
+      .game__status {
+        margin: 1em 0 0;
+        text-align: center;
+      }
+
+      .game__board {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.9em;
+      }
+
+      .memory-card {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        perspective: 900px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .memory-card:disabled {
+        cursor: default;
+      }
+
+      .memory-card__inner {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .memory-card.is-up .memory-card__inner {
+        transform: rotateY(180deg);
+      }
+
+      .memory-card__face {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45em;
+        padding: 0.55em;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 0.5em;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        overflow: hidden;
+        text-align: center;
+      }
+
+      .memory-card__face--back {
+        background: linear-gradient(140deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .memory-card__face--front {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        transform: rotateY(180deg);
+      }
+
+      .memory-card__glyph {
+        width: 42%;
+        height: 42%;
+      }
+
+      .memory-card__tag {
+        padding: 0.25em 0.75em;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 1em;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.7em;
+        letter-spacing: 0.18em;
+        line-height: 1.4;
+      }
+
+      .memory-card__label {
+        font-size: 0.95em;
+        font-weight: 600;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+      }
+
+      .game__board--standard .memory-card__label {
+        font-size: 0.82em;
+      }
+
+      .game__board--standard .memory-card__tag {
+        font-size: 0.62em;
+      }
+
+      .memory-card.is-matched .memory-card__face--front {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .memory-card.is-matched {
+        animation: memory-pop 0.4s ease-out;
+      }
+
+      @keyframes memory-pop {
+        0% { transform: scale(1); }
+        45% { transform: scale(1.06); }
+        100% { transform: scale(1); }
+      }
+
+      .game__result {
+        margin-top: 1em;
+        padding: 1.5em;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 0.5em;
+        background: rgba(255, 255, 255, 0.09);
+        text-align: center;
+      }
+
+      .game__result[hidden] {
+        display: none;
+      }
+
+      .game__result-title {
+        margin: 0 0 0.35em;
+        color: #fff;
+        font-size: 1.35em;
+      }
+
+      .game__result-desc {
+        margin: 0 0 1em;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .game__result-action {
+        font-size: 0.8em;
+      }
+
+      .memory-card:focus-visible,
+      .game button:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+
       /* Footer */
       #footer {
         background-color: #312450;
@@ -469,6 +729,33 @@
         .wrapper > .inner {
           padding: 3em 2em 1em 2em ;
         }
+
+        #game .inner {
+          width: 100%;
+        }
+
+        .game__bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .game__controls {
+          justify-content: flex-start;
+        }
+
+        .game__board {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .memory-card__inner {
+          transition-duration: 0.01ms;
+        }
+
+        .memory-card.is-matched {
+          animation: none;
+        }
       }
     </style>
   </head>
@@ -482,6 +769,7 @@
             <li><a href="#education">教育背景</a></li>
             <li><a href="#work-experience">工作经历</a></li>
             <li><a href="#projects">项目与开源</a></li>
+            <li><a href="#game">记忆翻牌</a></li>
           </ul>
         </nav>
       </div>
@@ -574,6 +862,40 @@
             <div class="project-card">
               <h3>GeoAlign</h3>
               <p>图像几何对齐开源工具，用于图像配准、特征匹配相关任务。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Memory Game Section -->
+      <section id="game" class="wrapper style3-alt fullscreen fade-up">
+        <div class="inner">
+          <h2>记忆翻牌</h2>
+          <p class="game-subtitle">记忆翻牌小游戏</p>
+          <div class="game">
+            <div class="game__bar">
+              <dl class="game__stats">
+                <div class="game__stat"><dt>步数</dt><dd id="game-moves">0</dd></div>
+                <div class="game__stat"><dt>配对</dt><dd><span id="game-matches">0</span><span class="game__stat-total" id="game-total">/8</span></dd></div>
+                <div class="game__stat"><dt>用时</dt><dd id="game-time">00:00</dd></div>
+                <div class="game__stat"><dt>最佳</dt><dd id="game-best">--:--</dd></div>
+              </dl>
+              <div class="game__controls">
+                <div class="game__levels" role="group" aria-label="难度选择">
+                  <button type="button" class="game__level" data-pairs="4" aria-pressed="false">入门 · 8 张</button>
+                  <button type="button" class="game__level is-active" data-pairs="8" aria-pressed="true">标准 · 16 张</button>
+                </div>
+                <button type="button" class="game__action" id="game-hint">提示（3）</button>
+                <button type="button" class="game__action" id="game-restart">重新开始</button>
+              </div>
+            </div>
+            <p class="game__hint">翻开两张牌，牌面文字相同即配对成功，用最少的步数完成全部配对。</p>
+            <div class="game__board game__board--standard" id="game-board" aria-label="记忆翻牌区域"></div>
+            <p class="game__status" id="game-status" role="status" aria-live="polite">已配对 0 组，共 8 组。</p>
+            <div class="game__result" id="game-result" hidden>
+              <h3 class="game__result-title" id="game-result-title"></h3>
+              <p class="game__result-desc" id="game-result-desc"></p>
+              <button type="button" class="game__result-action" id="game-again">再来一局</button>
             </div>
           </div>
         </div>
@@ -674,6 +996,8 @@
             const id = entry.target.getAttribute('id');
             const link = document.querySelector(`#sidebar nav a[href="#${id}"]`);
 
+            if (!link) return;
+
             if (entry.isIntersecting && !link.classList.contains('active-locked')) {
               // Remove active class from all links
               navLinks.forEach(l => l.classList.remove('active'));
@@ -693,6 +1017,261 @@
         sections.forEach(section => {
           observer.observe(section);
         });
+
+        const cardItems = [
+          { pairId: 'light-detect', tag: '项目', label: 'LightDetect' },
+          { pairId: 'quant-llm', tag: '项目', label: 'QuantLLM' },
+          { pairId: 'multi-eval', tag: '项目', label: 'MultiEval' },
+          { pairId: 'geo-align', tag: '项目', label: 'GeoAlign' },
+          { pairId: 'shenzhen-university', tag: '教育', label: '深圳大学' },
+          { pairId: 'harbin-institute', tag: '教育', label: '哈尔滨工业大学' },
+          { pairId: 'dji', tag: '工作', label: '大疆' },
+          { pairId: 'bytedance', tag: '工作', label: '字节跳动' }
+        ];
+        const board = document.getElementById('game-board');
+        const movesElement = document.getElementById('game-moves');
+        const matchesElement = document.getElementById('game-matches');
+        const totalElement = document.getElementById('game-total');
+        const timeElement = document.getElementById('game-time');
+        const bestElement = document.getElementById('game-best');
+        const statusElement = document.getElementById('game-status');
+        const hintButton = document.getElementById('game-hint');
+        const restartButton = document.getElementById('game-restart');
+        const againButton = document.getElementById('game-again');
+        const resultElement = document.getElementById('game-result');
+        const resultTitle = document.getElementById('game-result-title');
+        const resultDesc = document.getElementById('game-result-desc');
+        const levelButtons = document.querySelectorAll('.game__level');
+        const storageKey = 'eeelab-memory-best-v1';
+        let pairCount = 8;
+        let cards = [];
+        let openCards = [];
+        let moves = 0;
+        let matches = 0;
+        let hints = 3;
+        let elapsed = 0;
+        let timer = null;
+        let busy = false;
+        let won = false;
+
+        function shuffle(items) {
+          const shuffled = items.slice();
+          for (let index = shuffled.length - 1; index > 0; index -= 1) {
+            const randomIndex = Math.floor(Math.random() * (index + 1));
+            [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+          }
+          return shuffled;
+        }
+
+        function formatTime(seconds) {
+          const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const remainingSeconds = (seconds % 60).toString().padStart(2, '0');
+          return `${minutes}:${remainingSeconds}`;
+        }
+
+        function getBestTimes() {
+          try {
+            return JSON.parse(localStorage.getItem(storageKey)) || {};
+          } catch (error) {
+            return {};
+          }
+        }
+
+        function updateBestTime() {
+          const best = getBestTimes()[pairCount];
+          bestElement.textContent = Number.isFinite(best) ? formatTime(best) : '--:--';
+        }
+
+        function startTimer() {
+          if (timer || elapsed > 0 || won) return;
+          timer = window.setInterval(() => {
+            elapsed += 1;
+            timeElement.textContent = formatTime(elapsed);
+          }, 1000);
+        }
+
+        function stopTimer() {
+          window.clearInterval(timer);
+          timer = null;
+        }
+
+        function cardMarkup(card, index) {
+          return `
+            <button type="button" class="memory-card" data-index="${index}" aria-label="未翻开的卡片">
+              <span class="memory-card__inner">
+                <span class="memory-card__face memory-card__face--back" aria-hidden="true">
+                  <svg class="memory-card__glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M24 5l16 9.5v19L24 43 8 33.5v-19L24 5z"></path>
+                    <path d="M24 15.5l8 4.75v9.5l-8 4.75-8-4.75v-9.5l8-4.75z"></path>
+                    <circle cx="24" cy="24" r="2.6" fill="currentColor" stroke="none"></circle>
+                  </svg>
+                </span>
+                <span class="memory-card__face memory-card__face--front">
+                  <span class="memory-card__tag">${card.tag}</span>
+                  <span class="memory-card__label">${card.label}</span>
+                </span>
+              </span>
+            </button>`;
+        }
+
+        function updateCardState(index) {
+          const card = cards[index];
+          const element = board.querySelector(`[data-index="${index}"]`);
+          if (!element) return;
+          element.classList.toggle('is-up', card.isUp || card.isMatched);
+          element.classList.toggle('is-matched', card.isMatched);
+          element.disabled = card.isMatched;
+          element.setAttribute('aria-label', card.isMatched
+            ? `已配对：${card.tag}，${card.label}`
+            : card.isUp
+              ? `已翻开：${card.tag}，${card.label}`
+              : '未翻开的卡片');
+        }
+
+        function updateStatus() {
+          movesElement.textContent = moves;
+          matchesElement.textContent = matches;
+          totalElement.textContent = `/${pairCount}`;
+          hintButton.textContent = `提示（${hints}）`;
+          hintButton.disabled = busy || won || hints === 0 || openCards.length > 0;
+          statusElement.textContent = `已配对 ${matches} 组，共 ${pairCount} 组。`;
+        }
+
+        function finishGame() {
+          won = true;
+          stopTimer();
+          const bestTimes = getBestTimes();
+          if (!Number.isFinite(bestTimes[pairCount]) || elapsed < bestTimes[pairCount]) {
+            bestTimes[pairCount] = elapsed;
+            try {
+              localStorage.setItem(storageKey, JSON.stringify(bestTimes));
+            } catch (error) {
+              // The game remains playable if storage is unavailable.
+            }
+          }
+          updateBestTime();
+          resultTitle.textContent = moves <= pairCount + 2
+            ? '完美记忆'
+            : moves <= pairCount * 2
+              ? '记忆高手'
+              : '全部配对完成';
+          resultDesc.textContent = `你用 ${moves} 步，在 ${formatTime(elapsed)} 内完成了全部配对。`;
+          resultElement.hidden = false;
+          updateStatus();
+        }
+
+        function checkOpenCards() {
+          const [firstIndex, secondIndex] = openCards;
+          const first = cards[firstIndex];
+          const second = cards[secondIndex];
+          moves += 1;
+          busy = true;
+          updateStatus();
+
+          if (first.pairId === second.pairId) {
+            window.setTimeout(() => {
+              first.isMatched = true;
+              second.isMatched = true;
+              matches += 1;
+              openCards = [];
+              busy = false;
+              updateCardState(firstIndex);
+              updateCardState(secondIndex);
+              updateStatus();
+              if (matches === pairCount) finishGame();
+            }, 420);
+            return;
+          }
+
+          window.setTimeout(() => {
+            first.isUp = false;
+            second.isUp = false;
+            openCards = [];
+            busy = false;
+            updateCardState(firstIndex);
+            updateCardState(secondIndex);
+            updateStatus();
+          }, 900);
+        }
+
+        function handleCardClick(event) {
+          const element = event.target.closest('.memory-card');
+          if (!element || busy || won) return;
+          const index = Number(element.dataset.index);
+          const card = cards[index];
+          if (!card || card.isUp || card.isMatched) return;
+          startTimer();
+          card.isUp = true;
+          openCards.push(index);
+          updateCardState(index);
+          updateStatus();
+          if (openCards.length === 2) checkOpenCards();
+        }
+
+        function showHint() {
+          if (busy || won || hints === 0 || openCards.length > 0) return;
+          const unmatched = cards.filter(card => !card.isMatched);
+          const first = unmatched[Math.floor(Math.random() * unmatched.length)];
+          const pairIndices = cards
+            .map((card, index) => card.pairId === first.pairId && !card.isMatched ? index : -1)
+            .filter(index => index >= 0);
+          if (pairIndices.length !== 2) return;
+          hints -= 1;
+          busy = true;
+          pairIndices.forEach(index => {
+            cards[index].isUp = true;
+            updateCardState(index);
+          });
+          updateStatus();
+          window.setTimeout(() => {
+            pairIndices.forEach(index => {
+              cards[index].isUp = false;
+              updateCardState(index);
+            });
+            busy = false;
+            updateStatus();
+          }, 1200);
+        }
+
+        function startGame() {
+          stopTimer();
+          moves = 0;
+          matches = 0;
+          hints = 3;
+          elapsed = 0;
+          busy = false;
+          won = false;
+          openCards = [];
+          timeElement.textContent = '00:00';
+          resultElement.hidden = true;
+          const selected = cardItems.slice(0, pairCount);
+          cards = shuffle(selected.flatMap(card => [
+            { ...card, isUp: false, isMatched: false },
+            { ...card, isUp: false, isMatched: false }
+          ]));
+          board.classList.toggle('game__board--standard', pairCount === 8);
+          board.innerHTML = cards.map(cardMarkup).join('');
+          updateBestTime();
+          updateStatus();
+        }
+
+        levelButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            pairCount = Number(button.dataset.pairs);
+            levelButtons.forEach(level => {
+              const isActive = level === button;
+              level.classList.toggle('is-active', isActive);
+              level.setAttribute('aria-pressed', String(isActive));
+            });
+            startGame();
+          });
+        });
+
+        board.addEventListener('click', handleCardClick);
+        hintButton.addEventListener('click', showHint);
+        restartButton.addEventListener('click', startGame);
+        againButton.addEventListener('click', startGame);
+        startGame();
       });
     </script>
   </body>
